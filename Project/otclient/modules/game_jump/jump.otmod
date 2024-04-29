@@ -1,0 +1,9 @@
+Module
+  name: game_jump
+  description: Displays a jumping button
+  author: Sarah
+  website: www.otclient.info
+  sandboxed: true
+  scripts: [ jump.lua ]
+  @onLoad: init()
+  @onUnload: terminate()

@@ -1,0 +1,40 @@
+JumpLabel < Label
+  font: verdana-11px-monochrome
+  text-offset: 2 0
+  focusable: true
+  color: #aaaaaa
+  background-color: alpha
+
+  $on:
+    color: #00aa00
+  $!on:
+    color: #aaaaaa
+
+  $focus:
+    background-color: #444444
+
+  $on focus:
+    color: #00ff00
+  $!on focus:
+    color: #ffffff
+
+JumpWindow < MainWindow
+  id: jumpWindow
+  !text: tr('Jump')
+  size: 500 400
+  @onEscape: self:destroy()
+
+  Button
+    id: closeButton
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    !text: tr('Close')
+    width: 90
+    @onClick: self:getParent():destroy()
+  Button
+    id: jump
+    anchors.top: parent.top
+    anchors.right: parent.right
+    !text: tr('Jump!')
+    width: 90
+    @onClick: modules.game_jump.changePos()
